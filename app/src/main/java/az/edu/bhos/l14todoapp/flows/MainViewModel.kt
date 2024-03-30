@@ -26,9 +26,10 @@ class MainViewModel(
 
         todoRepo.observeTodoEntries()
             .onEach { todos ->
-                // todo convert todos to bundles
+                val submit=todos.groupBy { it.weekday }
+                    .map { entry -> TodoBundle(entry.key,entry.value) }
 
-                _todoBundles.postValue(emptyList())
+                _todoBundles.postValue(submit)
             }.launchIn(viewModelScope)
     }
 }

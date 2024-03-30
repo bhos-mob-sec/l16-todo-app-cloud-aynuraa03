@@ -32,7 +32,7 @@ val androidModule = module {
 
     factory<Retrofit> {
         Retrofit.Builder()
-            .baseUrl("https://6607bbf2a2a5dd477b1355dd.mockapi.io/")
+            .baseUrl("https://6607bbf2a2a5dd477b1355dd.mockapi.io")
             .addConverterFactory(
                 get<Json>().asConverterFactory(
                     "application/json; charset=UTF8".toMediaType()
